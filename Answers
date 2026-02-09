@@ -457,3 +457,194 @@ House Blueprint Analogy
 Class: Blueprint of a house
 Object: Actual houses built using the blueprint
 All houses follow the same design but can differ in color, furniture, or location.
+
+4.2 Special Types of Classes
+
+1) What is a data class in Kotlin?
+A data class in Kotlin is a special class used to hold data.
+Its primary purpose is to store values, not to define complex behavior.
+Kotlin automatically generates common boilerplate code for data classes, making them concise and readable.
+Example
+data class User(
+    val id: Int,
+    val name: String,
+    val email: String
+)
+
+2) What boilerplate code do data classes generate?
+For a data class, Kotlin automatically generates:
+equals()
+hashCode()
+toString()
+copy()
+componentN() functions (for destructuring)
+Example:
+val user1 = User(1, "Alice", "alice@gmail.com")
+val user2 = user1.copy(name = "Bob")
+
+3) What are the benefits of data classes?
+Reduces boilerplate code
+Improves code readability
+Provides immutability using val
+Easy object comparison
+Built-in copy functionality
+Ideal for DTOs, API models, and database entities
+
+4) How does Kotlin's data class support OOP principles?
+Encapsulation: Properties are grouped inside a class
+Abstraction: Exposes meaningful data models
+Polymorphism: Can implement interfaces or extend classes
+Immutability: Promotes safer object handling
+
+5) Difference between data class and regular class
+Data Class	Regular Class
+Automatically generates boilerplate code	Manual implementation needed
+Used mainly for holding data	Used for logic and behavior
+Must have at least one parameter	No such restriction
+Focus on state	Focus on behavior
+
+6) What is an enum class in Kotlin?
+An enum class represents a fixed set of constants.
+Example
+enum class Status {
+    SUCCESS,
+    ERROR,
+    LOADING
+}
+Usage:
+val status = Status.SUCCESS
+
+7) What are sealed classes in Kotlin?
+A sealed class restricts class inheritance to a fixed set of subclasses known at compile time.
+sealed class Result {
+    data class Success(val data: String) : Result()
+    data class Error(val message: String) : Result()
+}
+
+8) What are sealed interfaces in Kotlin?
+Sealed interfaces work like sealed classes but allow:
+Multiple inheritance
+Greater flexibility
+sealed interface ApiResponse
+class Success(val data: String) : ApiResponse
+class Failure(val error: String) : ApiResponse
+
+9) When are sealed classes useful (especially with when)?
+Sealed classes are useful when:
+You want exhaustive when expressions
+All cases must be handled at compile time
+fun handle(result: Result) {
+    when (result) {
+        is Result.Success -> println(result.data)
+        is Result.Error -> println(result.message)
+    }
+}
+No else is required.
+
+10) Difference between sealed class and abstract class
+Sealed Class	Abstract Class
+Restricted inheritance	Open inheritance
+Known subclasses	Unknown subclasses
+Best for state modeling	Best for behavior
+Exhaustive when	Requires else
+
+11) How is sealed class useful for abstraction and polymorphism?
+Abstraction: Defines a base type
+Polymorphism: Different subclasses provide different implementations
+Compile-time safety ensures all cases are handled
+
+12) Benefits of using sealed class over enum
+Can hold data
+Supports inheritance
+Can have complex state
+Better modeling of UI states, API responses
+
+13) What are value classes in Kotlin?
+Value classes (inline classes) wrap a single value without runtime overhead.
+@JvmInline
+value class UserId(val id: Int)
+Benefits:
+Type safety
+No extra object allocation
+Performance optimized
+
+14) Difference between nested and inner classes
+Nested Class
+Does not hold reference to outer class
+Static by default
+class Outer {
+    class Nested {
+        fun show() = "Nested"
+    }
+}
+Inner Class
+Holds reference to outer class
+Uses inner keyword
+class Outer {
+    private val name = "Outer"
+
+    inner class Inner {
+        fun show() = name
+    }
+}
+
+4.3 Generic Classes and Type System
+
+1) What is a Generic Class?
+A generic class allows you to define a class with type parameters, making it reusable and type-safe.
+class Box<T>(val value: T)
+Usage:
+val intBox = Box(10)
+val stringBox = Box("Hello")
+
+2) What is typealias in Kotlin?
+typealias creates an alternative name for an existing type.
+typealias UserList = List<User>
+Benefits:
+Improves readability
+Simplifies complex types
+
+3) Explain the concepts of covariance, contravariance, and invariance in Kotlin generics. Provide examples.
+Invariance (default)
+class Box<T>
+Box<Int> is NOT a subtype of Box<Number>
+Covariance (out)
+Used for producers
+class Producer<out T>
+Allows:
+Producer<Int> → Producer<Number>
+Contravariance (in)
+Used for consumers
+class Consumer<in T>
+Allows:
+Consumer<Number> → Consumer<Int>
+
+4.4 Object Expressions and Declarations
+
+1) What are object expressions and declarations?
+Object Expression
+Creates anonymous objects
+val obj = object {
+    val name = "Anonymous"
+}
+Object Declaration (Singleton)
+Creates a single instance
+object Database {
+    fun connect() {}
+}
+
+2) Difference between object (singleton) and companion object
+Object (Singleton)
+Only one instance
+Used globally
+object Logger {
+    fun log(msg: String) {}
+}
+Companion Object
+Belongs to a class
+Used for static-like members
+class User {
+    companion object {
+        fun create(): User = User()
+    }
+}
