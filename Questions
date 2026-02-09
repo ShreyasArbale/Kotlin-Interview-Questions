@@ -75,8 +75,7 @@
 - What is sealed class in Kotlin? How is it useful for abstraction and polymorphism?
 - What are the benefits of using a Sealed Class over Enum?
 - What are value classes in Kotlin?
-- What is the difference between inner and nested classes in Kotlin?
-- What are nested and inner classes in Kotlin? Explain the difference with examples.
+- What is the difference between inner and nested classes in Kotlin? Explain the difference with examples.
 
 ### Generic Classes and Type System
 - What is a Generic Class?
