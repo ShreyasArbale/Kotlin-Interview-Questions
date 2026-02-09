@@ -21,6 +21,9 @@
 - What are benefits of OOP?
 - What are the four main pillars of OOP?
 - Define Encapsulation, Abstraction, Inheritance, and Polymorphism.
+- What is Compile-Time Polymorphism (Function Overloading)
+- What is Runtime Polymorphism (Method Overriding)
+- Difference between Compile-Time and Runtime polymorphism
 
 ## 2. Variables & Types
 
