@@ -1,6 +1,6 @@
 1. Fundamentals & Core Concepts
 
-Basic Kotlin Concepts
+1.1 Basic Kotlin Concepts
 
 1) What is Kotlin?
 Kotlin is a modern, statically typed programming language that runs on the JVM and is officially supported by Google for Android development. It is concise, safe, and fully interoperable with Java.
@@ -19,14 +19,14 @@ Coroutines for asynchronous programming
 Improved readability and maintainability
 
 4) What is the difference between Java and Kotlin?
-Feature	Java	Kotlin
-Null Safety	No	Yes
-Boilerplate Code	More	Less
-Data Classes	Manual	Built-in
-Coroutines	Not native	Built-in
-Extension Functions	No	Yes
-Checked Exceptions	Yes	No
-Functional Support	Limited	Strong
+Feature	                Java	    Kotlin
+Null Safety	            No	        Yes
+Boilerplate Code	    More	    Less
+Data Classes	        Manual	    Built-in
+Coroutines	            Not native	Built-in
+Extension Functions	    No	        Yes
+Checked Exceptions	    Yes	        No
+Functional Support	    Limited	    Strong
 
 5) What is Kotlin's primary target platform?
 Kotlin’s primary target platform is the Java Virtual Machine (JVM), but it also supports:
@@ -78,7 +78,7 @@ Dagger / Hilt
 Glide / Coil
 JUnit / MockK
 
-Object-Oriented Programming (OOP) Fundamentals
+1.2 Object-Oriented Programming (OOP) Fundamentals
 
 1) What is Object-Oriented Programming (OOP)?
 Object-Oriented Programming is a programming paradigm that organizes software using objects, which represent real-world entities. Each object contains data (properties) and behavior (methods).
@@ -353,113 +353,107 @@ Cleaner than if (value == null)
 Provides clear error messages
 Preferred for parameter validation
 
-# Kotlin Class and Object Interview Questions
+4. Kotlin Class and Object
 
-## What is a class in Kotlin?
-A class is a blueprint or template that defines the structure and behavior of objects. It encapsulates data (properties) and functions (methods) that operate on that data. A class defines what an object will look like and what it can do, but it doesn't represent the actual object itself.
+4.1 Basic Class and Object Concepts
 
-## Explain class in Kotlin with example
-```kotlin
+1) What is a class in Kotlin?
+A class in Kotlin is a blueprint or template that defines the structure and behavior of objects.
+It encapsulates:
+Properties → to store data
+Functions → to define behavior
+A class itself does not represent a real object; it only describes what an object will look like and what it can do.
+
+2) Explain class in Kotlin with example
 class Car {
-    // Properties
     var brand: String = ""
     var model: String = ""
     var year: Int = 0
     var color: String = ""
-    // Methods
+
     fun startEngine() {
-        println("$brand $model engine started!")
+        println("$brand $model engine started")
     }
-    
+
     fun drive() {
         println("The $color $brand is driving")
     }
-    
+
     fun displayInfo() {
         println("Car: $year $brand $model, Color: $color")
     }
 }
-In this example, `Car` is a class that defines properties like brand, model, year, and color, along with methods like startEngine(), drive(), and displayInfo().
+Explanation:
+Here, Car is a class that defines:
+Properties like brand, model, year, and color
+Methods like startEngine(), drive(), and displayInfo()
+This class defines what a car object will contain and how it will behave.
 
-## How does class act as a blueprint for objects?
-A class acts as a blueprint by defining the template from which objects are created. Just like an architectural blueprint specifies how a building should be constructed, a class specifies what properties and behaviors its objects will have. When you create an object from a class, you're essentially creating a concrete instance based on that blueprint. Multiple objects can be created from the same class, each with its own unique property values but sharing the same structure and behavior defined in the class.
+3) How does a class act as a blueprint for objects?
+A class acts as a blueprint because it defines:
+The data structure of an object
+The operations that can be performed on that data
+From one class, we can create multiple objects, each having its own values but sharing the same structure and behavior.
 
-## What is an object in Kotlin?
-An object is a concrete instance of a class. It's a real entity that exists in memory with actual values for the properties defined in the class. While a class is just a definition, an object is the actual implementation of that definition with specific data.
+4) What is an object in Kotlin?
+An object is a real, concrete instance of a class.
+It exists in memory at runtime and contains actual values for the properties defined in the class.
 
-## Explain object in Kotlin with example
-```kotlin
-class Car {
-    var brand: String = ""
-    var model: String = ""
-    var year: Int = 0
-    var color: String = ""
-    
-    fun displayInfo() {
-        println("Car: $year $brand $model, Color: $color")
-    }
-}
-
+5) Explain object in Kotlin with example
 fun main() {
-    // Creating objects (instances) of the Car class
     val car1 = Car()
     car1.brand = "Toyota"
     car1.model = "Camry"
     car1.year = 2023
     car1.color = "Blue"
-    
+
     val car2 = Car()
     car2.brand = "Honda"
     car2.model = "Civic"
     car2.year = 2024
     car2.color = "Red"
-    
-    // Using the objects
-    car1.displayInfo()  // Output: Car: 2023 Toyota Camry, Color: Blue
-    car2.displayInfo()  // Output: Car: 2024 Honda Civic, Color: Red
+
+    car1.displayInfo()
+    car2.displayInfo()
 }
-Here, `car1` and `car2` are objects created from the `Car` class. Each has its own unique property values.
+Explanation:
+car1 and car2 are objects of the Car class
+Each object has its own state
+Both follow the same structure defined by the class
 
-## How is object an instance of a class?
-An object is an instance of a class because it's created based on the class definition. The class provides the structure, and the object is the actual realization of that structure with specific values. When you instantiate a class using the constructor (e.g., `Car()`), you allocate memory for a new object and initialize it according to the class blueprint. Each instance is independent and has its own copy of the properties defined in the class.
+6) How is an object an instance of a class?
+An object is called an instance of a class because:
+It is created using the class constructor
+Memory is allocated at runtime
+Properties are initialized with actual values
+Each object is independent, even though it is created from the same class.
 
-## What is the difference between a class and an object in Kotlin?
-**Class:**
-- A blueprint or template
-- Doesn't occupy memory (until instantiated)
-- Defines the structure and behavior
-- Written once and can create multiple objects
-- Abstract concept
-
-**Object:**
-- A concrete instance of a class
-- Occupies memory
-- Has actual values for properties
-- Each object is independent
-- Real entity that exists at runtime
-
-```kotlin
-// Class - blueprint
+7) What is the difference between a class and an object in Kotlin?
+Class:
+Blueprint or template
+Does not occupy memory
+Defines properties and methods
+Written once
+Logical/abstract concept
+Object:
+Instance of a class
+Occupies memory
+Holds actual values
+Can be multiple
+Real entity at runtime
 class Phone {
     var brand: String = ""
     var price: Double = 0.0
 }
+val phone1 = Phone()
+val phone2 = Phone()
 
-// Objects - actual instances
-val phone1 = Phone()  // First instance
-phone1.brand = "Samsung"
-phone1.price = 799.99
-
-val phone2 = Phone()  // Second instance
-phone2.brand = "Apple"
-phone2.price = 999.99
-
-## Explain using a real-world analogy
-**Cookie Cutter Analogy:**
-Think of a class as a cookie cutter and objects as the actual cookies.
-- **Class (Cookie Cutter):** The cookie cutter defines the shape and design of the cookie. It's reusable and defines what the cookies will look like, but you can't eat the cookie cutter itself. It's just a template.
-- **Objects (Cookies):** When you use the cookie cutter on dough, you create actual cookies. Each cookie has the same shape (structure) defined by the cutter, but each cookie is a separate, independent entity. You can decorate them differently (different property values), eat them separately, and they exist independently from each other.
-**House Blueprint Analogy:**
-- **Class (Blueprint):** An architectural blueprint shows the design of a house with rooms, dimensions, and features. The blueprint itself isn't a house you can live in.
-- **Objects (Houses):** Using the same blueprint, you can build multiple houses. Each house follows the same design, but they're separate physical structures. One house might be painted blue, another white. One might have different furniture than the other. They're independent instances built from the same blueprint.
-This is exactly how classes and objects work in Kotlin—the class is the plan, and objects are the real things created from that plan.
+8) Explain using a real-world analogy
+Cookie Cutter Analogy
+Class: Cookie cutter → defines the shape
+Object: Cookies → actual items created from the cutter
+Each cookie looks similar but is a separate entity.
+House Blueprint Analogy
+Class: Blueprint of a house
+Object: Actual houses built using the blueprint
+All houses follow the same design but can differ in color, furniture, or location.
