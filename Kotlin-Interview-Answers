@@ -1,0 +1,79 @@
+1. Fundamentals & Core Concepts
+
+Basic Kotlin Concepts
+
+1) What is Kotlin?
+Kotlin is a modern, statically typed programming language that runs on the JVM and is officially supported by Google for Android development. It is concise, safe, and fully interoperable with Java.
+
+2) Who developed Kotlin?
+Kotlin was developed by JetBrains, the company behind IntelliJ IDEA and Android Studio.
+
+3) What are the key advantages and features of Kotlin compared to Java?
+Concise code (less boilerplate)
+Null safety (reduces NullPointerException)
+Full Java interoperability
+Smart casts
+Extension functions
+Data classes
+Coroutines for asynchronous programming
+Improved readability and maintainability
+
+4) What is the difference between Java and Kotlin?
+Feature	Java	Kotlin
+Null Safety	No	Yes
+Boilerplate Code	More	Less
+Data Classes	Manual	Built-in
+Coroutines	Not native	Built-in
+Extension Functions	No	Yes
+Checked Exceptions	Yes	No
+Functional Support	Limited	Strong
+
+5) What is Kotlin's primary target platform?
+Kotlin’s primary target platform is the Java Virtual Machine (JVM), but it also supports:
+Android
+Kotlin/JS (JavaScript)
+Kotlin/Native (iOS, desktop, embedded)
+
+6) How does Kotlin-Java interoperability work?
+Kotlin can call Java code directly
+Java can call Kotlin code
+Kotlin compiles to JVM bytecode
+Existing Java libraries and frameworks work seamlessly in Kotlin
+No need to rewrite Java code when migrating
+
+7) What programming paradigms does Kotlin support?
+Kotlin supports:
+Object-Oriented Programming (OOP)
+Functional Programming
+Procedural Programming
+Declarative style (especially with Jetpack Compose)
+
+8) What serves as the entry point for a Kotlin program?
+The entry point is the main() function:
+fun main() {
+    println("Hello, Kotlin")
+}
+
+9) What are some basic syntax rules in Kotlin?
+Semicolons are optional
+fun keyword is used for functions
+val for immutable variables, var for mutable
+Type inference is supported
+Classes are declared using class
+String templates use $variable
+Example:
+val name = "Shreyas"
+fun greet() {
+    println("Hello $name")
+}
+
+10) What are some common libraries and frameworks used with Kotlin (beyond standard library)?
+Android Jetpack (ViewModel, LiveData, Room)
+Jetpack Compose
+Kotlin Coroutines
+Retrofit
+Ktor
+Firebase
+Dagger / Hilt
+Glide / Coil
+JUnit / MockK
