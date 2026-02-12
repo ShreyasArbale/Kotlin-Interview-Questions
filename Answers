@@ -2,81 +2,125 @@
 
 1.1 Basic Kotlin Concepts
 
-1) What is Kotlin?
-Kotlin is a modern, statically typed programming language that runs on the JVM and is officially supported by Google for Android development. It is concise, safe, and fully interoperable with Java.
+1. What is Kotlin?
+Answer: Kotlin is a modern, statically-typed programming language developed to be fully interoperable with Java. It runs on the Java Virtual Machine (JVM) and can be used for Android development, backend development, and even frontend (via Kotlin/JS). Kotlin is known for its concise syntax, null safety features, and support for both object-oriented and functional programming paradigms.
 
-2) Who developed Kotlin?
-Kotlin was developed by JetBrains, the company behind IntelliJ IDEA and Android Studio.
+2. Who developed Kotlin?
+Answer: Kotlin was developed by JetBrains, the same company behind popular IDEs like IntelliJ IDEA. The language was officially released in 2011 and became a first-class language for Android development in 2017.
 
-3) What are the key advantages and features of Kotlin compared to Java?
-Concise code (less boilerplate)
-Null safety (reduces NullPointerException)
-Full Java interoperability
-Smart casts
-Extension functions
+3. What is the difference between Java and Kotlin?
+Answer:
+| Kotlin                                                                                                                           | Java                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Kotlin was developed by JetBrains and officially released in 2011.                                                               | Java was developed by Sun Microsystems in 1995.                                                 |
+| Kotlin reduces boilerplate code by providing features like data classes and automatic property generation.                       | Java requires more boilerplate code for classes, constructors, getters, and setters.            |
+| Kotlin provides built-in null safety that helps prevent null-related errors at compile time.                                     | Java does not provide built-in null safety, which can lead to NullPointerException at runtime.  |
+| Kotlin provides coroutines, which are lightweight and simplify asynchronous programming.                                         | Java uses traditional thread-based concurrency for asynchronous programming.                    |
+| Kotlin supports extension functions that allow adding new functionality to existing classes without modifying their source code. | Java does not support extension functions directly and requires inheritance or utility classes. |
+| Kotlin supports default arguments directly in function definitions.                                                              | Java requires method overloading to implement default parameter values.                         |
+| Kotlin does not have checked exceptions, making exception handling simpler.                                                      | Java uses checked exceptions that must be handled or declared.                                  |
+| Kotlin supports both object-oriented and functional programming styles.                                                          | Java mainly supports object-oriented programming, though functional features were added later.  |
+| Kotlin code is concise, expressive, and more readable.                                                                           | Java code is generally more verbose and longer.                                                 |
+| Kotlin is officially preferred by Google for Android development.                                                                | Java has long been used for Android development and remains fully supported.                    |
+
+4. What are the advantages of Kotlin over Java?
+Answer:
+Null Safety: Reduces NullPointerExceptions
+Concise Code: Less boilerplate compared to Java
+Extension Functions: Allows adding functionality to classes without inheritance
+Smart Casts: Automatically handles casting after type checks
 Data classes
-Coroutines for asynchronous programming
+Coroutines: Simplifies asynchronous programming
+Interoperability: 100% interoperable with Java
 Improved readability and maintainability
 
-4) What is the difference between Java and Kotlin?
-Feature	                Java	    Kotlin
-Null Safety	            No	        Yes
-Boilerplate Code	    More	    Less
-Data Classes	        Manual	    Built-in
-Coroutines	            Not native	Built-in
-Extension Functions	    No	        Yes
-Checked Exceptions	    Yes	        No
-Functional Support	    Limited	    Strong
+5. What are the various data types available in Kotlin? Explain them.
+Answer: Kotlin has the following basic data types:
+Numbers: 
+Byte, Short, Int, Long – for integers
+Float, Double – for floating-point numbers
+Characters: Char
+Boolean: Boolean (true or false)
+Strings: String
+Arrays: Array<T>
 
-5) What is Kotlin's primary target platform?
-Kotlin’s primary target platform is the Java Virtual Machine (JVM), but it also supports:
-Android
-Kotlin/JS (JavaScript)
-Kotlin/Native (iOS, desktop, embedded)
-
-6) How does Kotlin-Java interoperability work?
+6.How does Kotlin-Java interoperability work?
+Answer: 
 Kotlin can call Java code directly
 Java can call Kotlin code
 Kotlin compiles to JVM bytecode
 Existing Java libraries and frameworks work seamlessly in Kotlin
 No need to rewrite Java code when migrating
 
-7) What programming paradigms does Kotlin support?
-Kotlin supports:
-Object-Oriented Programming (OOP)
-Functional Programming
-Procedural Programming
-Declarative style (especially with Jetpack Compose)
+7. Is it possible to convert a String to an Int in Kotlin?
+Answer: Yes, Kotlin provides built-in extension functions for type conversion:
+val number = "123".toInt()
+If the string is not a valid number, it will throw a NumberFormatException. To safely convert:
+val number = "abc".toIntOrNull()  // returns null if conversion fails
 
-8) What serves as the entry point for a Kotlin program?
-The entry point is the main() function:
+8. What serves as the entry point for a Kotlin program?
+Answer: The entry point is the main() function:
 fun main() {
-    println("Hello, Kotlin")
+    println("Hello, Kotlin!")
 }
+For Android apps, the entry point is defined in the AndroidManifest.xml, typically as the MainActivity.
 
-9) What are some basic syntax rules in Kotlin?
+9. What is Kotlin's target platform, and how does Kotlin-Java interoperability work?
+Answer: Kotlin targets multiple platforms:
+JVM (Java Virtual Machine)
+JavaScript (via Kotlin/JS)
+Native (via Kotlin/Native)
+Kotlin is 100% interoperable with Java, which means:
+You can call Java code from Kotlin and vice versa
+Kotlin compiler generates Java-compatible bytecode
+Annotations like @JvmStatic, @JvmOverloads, and @JvmField help with smoother interop
+
+10. What kinds of programming paradigms does Kotlin support?
+Answer:
+Object-Oriented Programming (OOP): Supports classes, objects, inheritance, etc.
+Functional Programming (FP): Supports higher-order functions, lambdas, immutability, etc.
+Procedural Programming: Can write structured, sequential code
+
+11. What are some key features of Kotlin?
+Answer:
+Null Safety
+Extension Function
+Smart Casts
+Coroutines for asynchronous tasks
+Data Classes
+Sealed Classes
+Type Inference
+Destructuring Declarations
+Interoperability with Java
+Lambda expressions and higher-order functions
+
+12. How does Kotlin compare to Java?
+Answer:
+Kotlin is more concise and safe (especially with null handling)
+Kotlin supports modern programming constructs like coroutines, extension functions, etc.
+Java has broader adoption in enterprise systems, but Kotlin is becoming more popular, especially in Android development
+Kotlin reduces boilerplate code and improves developer productivity
+
+13. What are some common libraries and frameworks used with Kotlin?
+Answer:
+Ktor – Kotlin-native framework for building web servers and clients
+Koin / Hilt – Dependency Injection frameworks
+Coroutine Library – For asynchronous programming
+Room – Database persistence
+Retrofit – For network API calls
+Jetpack Compose – Modern UI toolkit for Android
+Exposed – Kotlin SQL library
+Moshi / Gson – JSON parsing libraries
+
+14. What are some basic syntax rules in Kotlin?
+Answer:
 Semicolons are optional
-fun keyword is used for functions
-val for immutable variables, var for mutable
-Type inference is supported
-Classes are declared using class
-String templates use $variable
-Example:
-val name = "Shreyas"
-fun greet() {
-    println("Hello $name")
-}
-
-10) What are some common libraries and frameworks used with Kotlin (beyond standard library)?
-Android Jetpack (ViewModel, LiveData, Room)
-Jetpack Compose
-Kotlin Coroutines
-Retrofit
-Ktor
-Firebase
-Dagger / Hilt
-Glide / Coil
-JUnit / MockK
+Use val for immutable variables and var for mutable ones
+Type declaration follows the variable name: val name: String = "John"
+Function declaration: fun greet(name: String): String { return "Hello, $name" }
+String templates: "Hello, $name"
+Null safety using ?: val name: String? = null
+Variables and Types
 
 1.2 Object-Oriented Programming (OOP) Fundamentals
 
@@ -273,10 +317,10 @@ Allowed inside class	✅	    ❌
 Used in annotations	    ❌	    ✅
 
 7) What is the difference between val, var, and const in Kotlin?
-Keyword	Mutability	Compile-time	Usage
-val	Immutable	No	Read-only variable
-var	Mutable	No	Changeable variable
-const val	Immutable	Yes	Constants
+Keyword	    Mutability	Compile-time	Usage
+val	        Immutable	No              Read-only variable
+var	        Mutable	No	Changeable      variable
+const val	Immutable	Yes	            Constants
 
 8) Does Kotlin have a ternary operator like Java? If not, what is the alternative?
 ❌ Kotlin does not have a ternary operator.
